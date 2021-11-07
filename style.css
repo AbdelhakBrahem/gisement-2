@@ -268,117 +268,49 @@ input[type="email"],
 
 /* STEP */
 
-.md-stepper-horizontal {
-  display: table;
-  width: 100%;
-  margin: 0 auto;
+.progressbar {
+  counter-reset: step;
 }
-.md-stepper-horizontal .md-step {
-  display: table-cell;
+.progressbar li {
+  list-style-type: none;
+  float: left;
+  width: 33.33%;
   position: relative;
-  padding: 24px;
+  text-align: center;
 }
-.md-stepper-horizontal .md-step:hover,
-.md-stepper-horizontal .md-step:active {
-  background-color: rgba(0, 0, 0, 0.04);
-}
-.md-stepper-horizontal .md-step:active {
-  border-radius: 15% / 75%;
-}
-.md-stepper-horizontal .md-step:first-child:active {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.md-stepper-horizontal .md-step:last-child:active {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.md-stepper-horizontal .md-step:hover .md-step-circle {
-  background-color: #757575;
-}
-.md-stepper-horizontal .md-step:first-child .md-step-bar-left,
-.md-stepper-horizontal .md-step:last-child .md-step-bar-right {
-  display: none;
-}
-.md-stepper-horizontal .md-step .md-step-circle {
+.progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
   width: 30px;
   height: 30px;
-  margin: 0 auto;
-  background-color: #999999;
+  border: 1px solid #ddd;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
   border-radius: 50%;
-  text-align: center;
-  line-height: 30px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #ffffff;
+  background-color: white;
 }
-.md-stepper-horizontal.green .md-step.active .md-step-circle {
-  background-color: #00ae81;
-}
-.md-stepper-horizontal.orange .md-step.active .md-step-circle {
-  background-color: #00ae81;
-}
-.md-stepper-horizontal .md-step.active .md-step-circle {
-  background-color: #00ae81;
-}
-.md-stepper-horizontal .md-step.done .md-step-circle:before {
-  font-family: "FontAwesome";
-  font-weight: 100;
-  content: "\f00c";
-}
-.md-stepper-horizontal .md-step.done .md-step-circle *,
-.md-stepper-horizontal .md-step.editable .md-step-circle * {
-  display: none;
-}
-.md-stepper-horizontal .md-step.editable .md-step-circle {
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-}
-.md-stepper-horizontal .md-step.editable .md-step-circle:before {
-  font-family: "FontAwesome";
-  font-weight: 100;
-  content: "\f040";
-}
-.md-stepper-horizontal .md-step .md-step-title {
-  margin-top: 16px;
-  font-size: 16px;
-  font-weight: 600;
-}
-.md-stepper-horizontal .md-step .md-step-title,
-.md-stepper-horizontal .md-step .md-step-optional {
-  text-align: center;
-  color: rgba(0, 0, 0, 0.26);
-}
-.md-stepper-horizontal .md-step.active .md-step-title {
-  font-weight: 600;
-  color: rgba(0, 0, 0, 0.87);
-}
-.md-stepper-horizontal .md-step.active.done .md-step-title,
-.md-stepper-horizontal .md-step.active.editable .md-step-title {
-  font-weight: 600;
-}
-.md-stepper-horizontal .md-step .md-step-optional {
-  font-size: 12px;
-}
-.md-stepper-horizontal .md-step.active .md-step-optional {
-  color: rgba(0, 0, 0, 0.54);
-}
-.md-stepper-horizontal .md-step .md-step-bar-left,
-.md-stepper-horizontal .md-step .md-step-bar-right {
+.progressbar li:after {
+  content: "";
   position: absolute;
-  top: 36px;
-  height: 1px;
-  border-top: 1px solid #dddddd;
+  width: 100%;
+  height: 3px;
+  background-color: #ddd;
+  top: 15px;
+  left: -50%;
+  z-index: -1;
 }
-.md-stepper-horizontal .md-step .md-step-bar-right {
-  right: 0;
-  left: 50%;
-  margin-left: 20px;
+.progressbar li:first-child:after {
+  content: none;
 }
-.md-stepper-horizontal .md-step .md-step-bar-left {
-  left: 0;
-  right: 50%;
-  margin-right: 20px;
+.progressbar li.active {
+  color: green;
+}
+.progressbar li.active:before {
+  border-color: #3aac5d;
+  background: #3aac5d;
+  color: white;
+}
+.progressbar li.active + li:after {
+  background-color: green;
 }
