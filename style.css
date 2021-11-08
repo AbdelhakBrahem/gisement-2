@@ -140,19 +140,20 @@ input[type="email"],
 .right {
   background-color: #c7e4dc;
   border-radius: 0 15px 15px 0;
-  display: block;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 24px;
   color: #018a65;
 }
 
-.right div {
-  margin: auto;
-}
 
 .left {
   padding: 24px;
+}
+
+.content{
+  display: none;
 }
 
 .line {
@@ -161,12 +162,18 @@ input[type="email"],
 .stepText1 {
   text-align: center;
   left: -15px;
+  font-weight: 600;
+  font-size: 0.75rem;
 }
 .stepText2 {
   text-align: center;
+  font-weight: 600;
+  font-size: 0.75rem;
 }
 .stepText3 {
   text-align: center;
+  font-weight: 600;
+  font-size: 0.75rem;
   right: -15px;
 }
 .step {
@@ -188,7 +195,7 @@ input[type="email"],
   float: right;
   margin-top: -10px;
 }
-.line .active {
+.activated {
   background: #018a65;
 }
 
